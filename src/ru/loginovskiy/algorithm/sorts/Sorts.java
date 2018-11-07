@@ -119,15 +119,58 @@ public class Sorts
 
     private void sort(int r, int l)
     {
-        int right = r;
-        int left = l;
-        int midle = (right + left)/2;
-
+        int begin = r;
+        int end = l;
+        if(begin == end)return;
+        int midle = (begin + end)/2;
+        sort(begin, midle);
+        sort(midle+1, end);
+        merge(begin, midle, midle+1, end);
+    }
+    private void merge(int fBegin, int fEnd, int sBegin, int sEnd)
+    {
+        int[] temp;
+        int i=0;
+        temp = new int[sEnd+1 - fBegin];
+        int start = fBegin;
+        while(fBegin<=fEnd && sBegin<=sEnd)
+        {
+            if(a[fBegin]<a[sBegin])temp[i++]=a[fBegin++];
+            else temp[i++]=a[sBegin++];
+        }
+        while(fBegin<=fEnd)temp[i++] = a[fBegin++];
+        while(sBegin<=sEnd)temp[i++] = a[sBegin++];
+        System.arraycopy(temp,0, a, start, temp.length);
     }
 
     public void quickSort(int[] arr)
     {
+        a = arr;
+        int left, right, tgt;
+        left = 0;
+        tgt = a.length-1;
+        right = tgt - 1;
+        qs(left, right, tgt);
+    }
 
+    private void qs(int l, int r, int t)
+    {
+        if(l==r && a[l]>a[t])swap(l,t);
+        if(l>=r)return;
+        int left, right, tgt;
+        left = l;
+        right = r;
+        tgt = t;
+
+        while(left<right)
+        {
+            while(left<=tgt && a[left]<a[tgt])left++;
+            while(right>left && a[right]>a[tgt])right--;
+            if(left<right)swap(left,right);
+        }
+        if(left==right)swap(right,tgt);
+        qs(l, right - 1, right-2);
+        qs(right+1, t-1, t);
     }
 
     private void swap(int i, int j)

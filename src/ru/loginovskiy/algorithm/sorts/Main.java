@@ -7,7 +7,7 @@ public class Main
         int[] arr = {7,2,4,3,9,1,8,6,5,0};
         Sorts sort = new Sorts();
         System.out.println(Arrays.toString(arr));
-        sort.heapSort(arr);
+        sort.quickSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
