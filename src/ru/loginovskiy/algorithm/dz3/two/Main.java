@@ -6,21 +6,33 @@ public class Main
     {
         Deck deck = new Deck(5);
         deck.insertLeft(1);
+        deck.insertLeft(1);
         deck.insertRight(-1);
-        deck.insertRight(-2);
-        deck.insertRight(-3);
-        deck.insertRight(-4);
-        deck.insertRight(-5);
+        deck.insertRight(-1);
+        deck.insertRight(-1);
+        deck.insertRight(-1);
+        deck.insertLeft(1);
+        deck.insertLeft(1);
+        deck.insertRight(-1);
+        deck.insertRight(-1);
+        deck.insertRight(-1);
         deck.insertLeft(2);
-        deck.insertLeft(3);
-        deck.insertLeft(4);
-        deck.insertLeft(5);
-        deck.insertLeft(6);
-        deck.extractRight();
-        deck.extractRight();
-        deck.extractRight();
-        deck.insertRight(0);
-        deck.insertRight(0);
+        deck.insertLeft(2);
+        deck.insertLeft(2);
+        deck.insertLeft(2);
+        deck.insertLeft(2);
+        deck.insertLeft(2);
+        deck.insertLeft(2);
+        deck.insertLeft(2);
+        deck.insertLeft(2);
+
+        for (int i = 0; i < 10 ; i++)
+        {
+            System.out.print(deck.extractLeft() + " ");
+        }
+        System.out.println();
+        //deck.insertLeft(2);
+        deck.insertLeft(1000);
         deck.showDeck();
     }
 }

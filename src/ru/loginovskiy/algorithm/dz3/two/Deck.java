@@ -34,7 +34,9 @@ public class Deck
         int[]temp = new int[maxSize];
         if(left<right)
         {
-            System.arraycopy(deck, 0, temp, maxSize - deck.length/2, deck.length);
+            System.arraycopy(deck, 0, temp, 0 + (deck.length/2), deck.length);
+            left = deck.length/2;
+            right = (deck.length/2) + deck.length-1;
         }
         else
         {
@@ -63,7 +65,7 @@ public class Deck
             maxSize*=2;
             expansion();
         }
-        if(right+1==maxSize)right = -1;
+        if(right==maxSize)right = -1;
         deck[++right]=val;
         items++;
     }
@@ -71,7 +73,7 @@ public class Deck
     public int extractLeft()
     {
         if(isEmpty())throw new RuntimeException("Дек пуст");
-        if(left == maxSize)left=0;
+        if(left  == maxSize)left=0;
         int temp = deck[left++];
         items--;
         return temp;
