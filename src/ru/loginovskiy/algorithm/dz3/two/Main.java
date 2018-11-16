@@ -12,6 +12,15 @@ public class Main
         deck.insertRight(-4);
         deck.insertRight(-5);
         deck.insertLeft(2);
+        deck.insertLeft(3);
+        deck.insertLeft(4);
+        deck.insertLeft(5);
+        deck.insertLeft(6);
+        deck.extractRight();
+        deck.extractRight();
+        deck.extractRight();
+        deck.insertRight(0);
+        deck.insertRight(0);
         deck.showDeck();
     }
 }

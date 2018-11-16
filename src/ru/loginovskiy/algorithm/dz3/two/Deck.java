@@ -71,7 +71,7 @@ public class Deck
     public int extractLeft()
     {
         if(isEmpty())throw new RuntimeException("Дек пуст");
-        if(left + 1 == maxSize)left=0;
+        if(left == maxSize)left=0;
         int temp = deck[left++];
         items--;
         return temp;
@@ -80,7 +80,7 @@ public class Deck
     public int extractRight()
     {
         if(isEmpty())throw new RuntimeException("Дек пуст");
-        if(right - 1 == -1)right=maxSize - 1;
+        if(right == -1)right=maxSize - 1;
         int temp = deck[right--];
         items--;
         return temp;
